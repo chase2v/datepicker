@@ -2,14 +2,155 @@
 	-webkit-user-select: none;
 }
 
-.container {
-	.button-group {
-		div {
+html {
+	font-size: 62.5%;
+	font-family: "Microsoft Yahei UI";
+}
+
+/**************************************************************/
+
+/* Datepicker 主体 */
+
+/* 动画 */
+.calendar-appear {
+	top: -100%;
+}
+.calendar-appear-active {
+	top: 0;
+	transition: top .5s ease-in;
+}
+.calendar-enter {
+	top: -100%;
+}
+.calendar-enter-active {
+	top: 0;
+	transition: top .5s ease-in;
+}
+.calendar-leave {
+	top: -100%;
+}
+.calendar-leave-active {
+	top: 0;
+	transition: top .5s ease-in;
+}
+
+/* 日历面板 */
+.calendar {
+
+	border:  1px solid #a5a5a5;
+	border-radius: 3px;
+	box-shadow: 0 0 5px #000;
+
+	padding: 1rem;
+	display: inline-block;
+	position: relative;
+
+	text-align: center;
+
+	.header-container {
+
+		padding: .5rem 0 1rem;
+		
+		font-size: 2.2rem;
+
+		.title {
 			cursor: pointer;
+		}
+
+		div {
 			display: inline-block;
+			float: left;
+			
+			padding: 0 .2rem;
+
+
+			cursor: pointer;
+
+			&:nth-of-type(3), &:last-child {
+				float: right;
+			}
+		}
+
+		&:after {
+			content: '';
+			height: 0;
+			clear: both;
+			display: table;
+		}
+	}
+
+	.main-container {
+		tr {
+			height: 3rem;
+		}
+		.date {
+			width: 4.5rem;
+			font-size: 1.8rem;
+			color: #ccc;
+
+			&.date-active {
+				color: #000;
+
+				&.date-current {
+					color: #f00;
+				}
+			}
+		}
+	}
+
+	.jump-btn {
+		float: right;
+		padding-right: 20px;
+		color: #ccc;
+		cursor: pointer;
+
+		&:hover {
+			color: #000;
+		}
+	}
+	.jump-panel {
+		display: none;
+
+		width: 100%;
+		height: 100%;
+		
+		position: absolute;
+		left: 0;
+		top: 0;
+		background-color: rgba(255,255,255,.8);
+
+		.jump-input {
+			width: 60%;
+			height: 50px;
+			line-height: 50px;
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			
+			border: none;
+			box-shadow: 0 0 5px #000;
+			background-color: #fff;			
+			
+			input {
+				width: 25%;
+
+				border: none;
+				text-align: center;
+
+				&:focus {
+					outline: none;
+				}
+			}
 		}
 	}
 }
+
+/* Datepicker 主体 */
+
+
+/****************************************************************************/
 
 /* 字体图标 */
 @font-face {font-family: "iconfont";
